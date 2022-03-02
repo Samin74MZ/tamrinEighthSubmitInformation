@@ -7,16 +7,12 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import com.example.tamrineighthsubmitinformation.databinding.ActivityMainBinding
-var NationalCode=""
-var PostalCode=""
-var Address=""
-var BornLocation=""
-var Gender=""
+var fileName = ""
+lateinit var sharedPreferences: SharedPreferences
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var listOfEditText = mutableListOf<EditText>()
-    lateinit var sharedPreferences: SharedPreferences
-    private var fileName = ""
+   // lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,17 +36,18 @@ class MainActivity : AppCompatActivity() {
         var isError = true
         listOfEditText.forEach {
             if (it.text.isBlank()) {
-               // isError = false
+
+                isError = false
             }
         }
         if (binding.editTextNationalCode.text.length < 10 || binding.editTextNationalCode.text.length > 10) {
-           // isError = false
+            isError = false
         }
         if (binding.editTextTextPostalAddress.text.javaClass !is Number) {
-            //isError = false
+            isError = false
         }
         if (!binding.male.isChecked && !binding.female.isChecked) {
-           // isError = false
+            isError = false
         }
         return isError
     }
@@ -60,10 +57,10 @@ class MainActivity : AppCompatActivity() {
             sharedPreferences = getSharedPreferences(fileName, 0)
             var editor = sharedPreferences.edit()
             editor.putString("FullName", binding.editTextTextPersonName.text.toString())
-            editor.putString(NationalCode, binding.editTextNationalCode.text.toString())
-            editor.putString(BornLocation, binding.editTextTextBornLocation.text.toString())
-            editor.putString(Address, binding.editTextTextLocation.text.toString())
-            editor.putString(PostalCode, binding.editTextTextPostalAddress.text.toString())
+            editor.putString("NationalCode", binding.editTextNationalCode.text.toString())
+            editor.putString("BornLocation", binding.editTextTextBornLocation.text.toString())
+            editor.putString("Address", binding.editTextTextLocation.text.toString())
+            editor.putString("PostalCode", binding.editTextTextPostalAddress.text.toString())
             var gender = ""
             if (binding.female.isChecked) {
                 gender = "female"
