@@ -25,6 +25,7 @@
             android:text="مشاهده اطلاعات ثبت شده" />
 
         <TextView
+            android:id="@+id/tvNationalCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -33,6 +34,7 @@
             android:text="کد ملی:" />
 
         <TextView
+            android:id="@+id/tvBornLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -41,6 +43,7 @@
             android:text="محل تولد:" />
 
         <TextView
+            android:id="@+id/tvLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -49,6 +52,7 @@
             android:text="آدرس:" />
 
         <TextView
+            android:id="@+id/tvPostalAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -57,6 +61,7 @@
             android:text="کد پستی:" />
 
         <TextView
+            android:id="@+id/tvGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -65,6 +70,7 @@
             android:text="جنسیت:" />
 
         <Button
+            android:id="@+id/butEditInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -73,6 +79,7 @@
             android:text="تغییر اطلاعت" />
 
         <Button
+            android:id="@+id/butNewUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

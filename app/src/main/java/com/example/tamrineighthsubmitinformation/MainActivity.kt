@@ -7,7 +7,11 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import com.example.tamrineighthsubmitinformation.databinding.ActivityMainBinding
-
+var NationalCode=""
+var PostalCode=""
+var Address=""
+var BornLocation=""
+var Gender=""
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var listOfEditText = mutableListOf<EditText>()
@@ -56,10 +60,10 @@ class MainActivity : AppCompatActivity() {
             sharedPreferences = getSharedPreferences(fileName, 0)
             var editor = sharedPreferences.edit()
             editor.putString("FullName", binding.editTextTextPersonName.text.toString())
-            editor.putString("NationalCode", binding.editTextNationalCode.text.toString())
-            editor.putString("BornLocation", binding.editTextTextBornLocation.text.toString())
-            editor.putString("Location", binding.editTextTextLocation.text.toString())
-            editor.putString("PostalAddress", binding.editTextTextPostalAddress.text.toString())
+            editor.putString(NationalCode, binding.editTextNationalCode.text.toString())
+            editor.putString(BornLocation, binding.editTextTextBornLocation.text.toString())
+            editor.putString(Address, binding.editTextTextLocation.text.toString())
+            editor.putString(PostalCode, binding.editTextTextPostalAddress.text.toString())
             var gender = ""
             if (binding.female.isChecked) {
                 gender = "female"
@@ -67,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 gender = "male"
             }
             editor.putString("Gender", gender)
-            editor.apply()
+            editor.commit()
             Toast.makeText(this, "Info Saved", Toast.LENGTH_SHORT).show()
         }
     }
@@ -78,4 +82,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }
