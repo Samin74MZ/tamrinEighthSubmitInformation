@@ -11,4 +11,5 @@ class ShowInfoActivity : AppCompatActivity() {
         binding= ActivityShowInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
 }

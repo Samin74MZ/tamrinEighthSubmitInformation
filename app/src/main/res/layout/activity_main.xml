@@ -8,9 +8,10 @@
 
    <LinearLayout
        android:layout_width="0dp"
-       android:layout_height="595dp"
+       android:layout_height="wrap_content"
        android:gravity="center"
        android:orientation="vertical"
+       app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent">
@@ -19,11 +20,11 @@
           android:id="@+id/textViewPageName"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
           android:layout_margin="10dp"
-          android:textColor="@color/greenm"
+          android:layout_weight="1"
           android:background="@color/green"
-          android:text="فرم ثبت اطلاعات" />
+          android:text="فرم ثبت اطلاعات"
+          android:textColor="@color/greenm" />
 
       <EditText
           android:id="@+id/editTextTextPersonName"
@@ -32,49 +33,44 @@
           android:layout_margin="10dp"
           android:layout_weight="1"
           android:ems="10"
+          android:hint="نام و نام خانوادگی:"
           android:inputType="textPersonName"
-          android:minHeight="48dp"
-          android:text="نام و نام خانوادگی:" />
+          android:minHeight="48dp" />
 
-      <com.google.android.material.textfield.TextInputLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          >
       <EditText
-          android:id="@+id/editTextNumber"
+          android:id="@+id/editTextNationalCode"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:layout_marginTop="10dp"
           android:layout_weight="1"
-          android:ems="10"
           android:backgroundTint="@color/white"
+          android:ems="10"
+          android:hint="کد ملی:"
           android:inputType="number"
-          android:minHeight="48dp"
-          android:hint="کد ملی:" />
-      </com.google.android.material.textfield.TextInputLayout>
+          android:minHeight="48dp" />
 
       <EditText
-          android:id="@+id/editTextTextBLocation"
+          android:id="@+id/editTextTextBornLocation"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:layout_weight="1"
           android:ems="10"
-          android:inputType="textPersonName"
-          android:minHeight="48dp"
-          android:text="محل تولد:" />
+          android:hint="محل تولد:"
+          android:inputType="text"
+          android:minHeight="48dp" />
 
       <EditText
-          android:id="@+id/editTextTextPersonName3"
+          android:id="@+id/editTextTextLocation"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:layout_weight="1"
           android:ems="10"
-          android:inputType="textPersonName"
-          android:minHeight="48dp"
-          android:text="آدرس" />
+          android:hint="آدرس"
+          android:inputType="text"
+          android:minHeight="48dp" />
 
       <EditText
           android:id="@+id/editTextTextPostalAddress"
@@ -83,9 +79,9 @@
           android:layout_margin="10dp"
           android:layout_weight="1"
           android:ems="10"
-          android:inputType="textPostalAddress"
-          android:minHeight="48dp"
-          android:text="کد پستی:" />
+          android:hint="کد پستی:"
+          android:inputType="number"
+          android:minHeight="48dp" />
 
       <TextView
           android:layout_width="match_parent"
@@ -97,13 +93,16 @@
           android:textStyle="bold" />
 
       <RadioGroup
+          android:id="@+id/gender"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:layout_gravity="end"
           android:layout_weight="0.5"
           android:gravity="center"
           android:orientation="horizontal">
 
          <RadioButton
+             android:id="@+id/male"
              android:layout_width="wrap_content"
              android:layout_height="match_parent"
              android:buttonTintMode="multiply"
@@ -114,6 +113,7 @@
              android:layout_height="match_parent" />
 
          <RadioButton
+             android:id="@+id/female"
              android:layout_width="wrap_content"
              android:layout_height="match_parent"
              android:buttonTintMode="multiply"
@@ -122,6 +122,7 @@
       </RadioGroup>
 
       <Button
+          android:id="@+id/setInfo"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
