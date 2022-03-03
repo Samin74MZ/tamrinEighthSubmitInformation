@@ -42,9 +42,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
-          android:layout_marginTop="10dp"
           android:layout_weight="1"
-          android:backgroundTint="@color/white"
           android:ems="10"
           android:hint="کد ملی:"
           android:inputType="number"
@@ -84,6 +82,7 @@
           android:minHeight="48dp" />
 
       <TextView
+          android:id="@+id/tvGender"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"

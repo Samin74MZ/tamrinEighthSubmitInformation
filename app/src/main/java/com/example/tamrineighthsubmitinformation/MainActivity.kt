@@ -1,27 +1,26 @@
 package com.example.tamrineighthsubmitinformation
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.tamrineighthsubmitinformation.databinding.ActivityMainBinding
 var fileName = ""
 lateinit var sharedPreferences: SharedPreferences
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var listOfEditText = mutableListOf<EditText>()
-   // lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initView()
-        binding.setInfo.setOnClickListener {
-            setInfoButton()
-            goToShowActivity()
-        }
+
     }
 
     fun initView() {
@@ -30,23 +29,29 @@ class MainActivity : AppCompatActivity() {
         listOfEditText.add(binding.editTextTextBornLocation)
         listOfEditText.add(binding.editTextTextLocation)
         listOfEditText.add(binding.editTextTextPostalAddress)
+        binding.setInfo.setOnClickListener {
+            setInfoButton()
+            goToShowActivity()
+        }
     }
 
     fun checkFields(): Boolean {
         var isError = true
         listOfEditText.forEach {
             if (it.text.isBlank()) {
-
+                it.error = "این قسمت نمی تواند خالی باشد"
                 isError = false
             }
         }
         if (binding.editTextNationalCode.text.length < 10 || binding.editTextNationalCode.text.length > 10) {
+            binding.editTextNationalCode.error = "کد ملی باید 10 رقم باشد"
             isError = false
         }
         if (binding.editTextTextPostalAddress.text.javaClass !is Number) {
-            isError = false
+           // isError = false
         }
         if (!binding.male.isChecked && !binding.female.isChecked) {
+            binding.tvGender.error="لطفا گزینه مناسب را انتخاب کنید"
             isError = false
         }
         return isError
@@ -63,9 +68,9 @@ class MainActivity : AppCompatActivity() {
             editor.putString("PostalCode", binding.editTextTextPostalAddress.text.toString())
             var gender = ""
             if (binding.female.isChecked) {
-                gender = "female"
+                gender = "زن"
             } else {
-                gender = "male"
+                gender = "مرد"
             }
             editor.putString("Gender", gender)
             editor.commit()
@@ -79,5 +84,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+    val startForResult=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        result: ActivityResult ->
+        if (result.resultCode==Activity.RESULT_OK){
+            val intent=result.data
+            val isNewUser=intent?.getBooleanExtra("NewUser",false)
+            if (isNewUser!!){
+                listOfEditText.forEach { it.text.clear() }
+                binding.gender.callOnClick()
+            }
+        }
+    }
 }
