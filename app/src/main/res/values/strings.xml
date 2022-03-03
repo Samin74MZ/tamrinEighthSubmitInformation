@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">tamrinEighthSubmitInformation</string>
-    <string name="fullName">نام و نام خانوادگی:<font color='#FF0077'>*</font></string>
-    <string name="nationalCode">کد ملی:<font color='#FF0077'>*</font></string>
+    <string name="fullName"> نام و نام خانوادگی:<font color='#FF0077'>*</font></string>
+    <string name="nationalCode"> کد ملی:<font color='#FF0077'>*</font></string>
     <string name="bornLocation"> محل تولد:<font color='#FF0077'>*</font></string>
     <string name="location"> آدرس:<font color='#FF0077'>*</font></string>
-    <string name="postalAddress">کد پستی:<font color='#FF0077'>*</font></string>
+    <string name="postalAddress"> کد پستی:<font color='#FF0077'>*</font></string>
 </resources>

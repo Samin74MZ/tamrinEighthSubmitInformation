@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -47,8 +48,9 @@ class MainActivity : AppCompatActivity() {
             binding.editTextNationalCode.error = "کد ملی باید 10 رقم باشد"
             isError = false
         }
-        if (binding.editTextTextPostalAddress.text.javaClass !is Number) {
-           // isError = false
+        if (binding.editTextTextPostalAddress.inputType!=InputType.TYPE_CLASS_NUMBER) {
+            binding.editTextTextPostalAddress.error = "کد پستی باید عدد باشد"
+            isError = false
         }
         if (!binding.male.isChecked && !binding.female.isChecked) {
             binding.tvGender.error="لطفا گزینه مناسب را انتخاب کنید"
