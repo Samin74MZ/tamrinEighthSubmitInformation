@@ -23,7 +23,7 @@
           android:layout_margin="10dp"
           android:layout_weight="1"
           android:background="@color/green"
-          android:text="فرم ثبت اطلاعات"
+          android:text="@string/infoForm"
           android:textSize="16sp"
           android:textColor="@color/greenm" />
 
@@ -37,7 +37,8 @@
           android:background="@drawable/edit_text_border"
           android:hint="@string/fullName"
           android:inputType="textPersonName"
-          android:minHeight="48dp" />
+          android:minHeight="48dp"
+          android:autofillHints="" />
 
       <EditText
           android:id="@+id/editTextNationalCode"
@@ -49,7 +50,8 @@
           android:hint="@string/nationalCode"
           android:background="@drawable/edit_text_border"
           android:inputType="number"
-          android:minHeight="48dp" />
+          android:minHeight="48dp"
+          android:autofillHints="" />
 
       <EditText
           android:id="@+id/editTextTextBornLocation"
@@ -61,7 +63,8 @@
           android:hint="@string/bornLocation"
           android:background="@drawable/edit_text_border"
           android:inputType="text"
-          android:minHeight="48dp" />
+          android:minHeight="48dp"
+          android:autofillHints="" />
 
       <EditText
           android:id="@+id/editTextTextLocation"
@@ -73,7 +76,8 @@
           android:hint="@string/location"
           android:background="@drawable/edit_text_border"
           android:inputType="text"
-          android:minHeight="48dp" />
+          android:minHeight="48dp"
+          android:autofillHints="" />
 
       <EditText
           android:id="@+id/editTextTextPostalAddress"
@@ -85,7 +89,8 @@
           android:hint="@string/postalAddress"
           android:background="@drawable/edit_text_border"
           android:inputType="number"
-          android:minHeight="48dp" />
+          android:minHeight="48dp"
+          android:autofillHints="" />
 
       <TextView
           android:id="@+id/tvGender"
@@ -93,8 +98,8 @@
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:layout_weight="0.5"
-          android:text="جنسیت:"
-          android:textSize="20dp"
+          android:text="@string/gender"
+          android:textSize="17sp"
           android:textStyle="bold" />
 
       <RadioGroup
@@ -111,7 +116,7 @@
              android:layout_width="wrap_content"
              android:layout_height="match_parent"
              android:buttonTintMode="multiply"
-             android:text="مرد" />
+             android:text="@string/male" />
 
          <Space
              android:layout_width="40dp"
@@ -122,7 +127,7 @@
              android:layout_width="wrap_content"
              android:layout_height="match_parent"
              android:buttonTintMode="multiply"
-             android:text="زن" />
+             android:text="@string/female" />
 
       </RadioGroup>
 
@@ -133,6 +138,6 @@
           android:layout_margin="10dp"
           android:layout_weight="0.5"
           android:backgroundTint="@color/pink"
-          android:text="ثبت اطلاعات" />
+          android:text="@string/submitInfo" />
    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,10 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.tamrineighthsubmitinformation.databinding.ActivityMainBinding
+
 var fileName = ""
 lateinit var sharedPreferences: SharedPreferences
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var listOfEditText = mutableListOf<EditText>()
@@ -48,12 +50,12 @@ class MainActivity : AppCompatActivity() {
             binding.editTextNationalCode.error = "کد ملی باید 10 رقم باشد"
             isError = false
         }
-        if (binding.editTextTextPostalAddress.inputType!=InputType.TYPE_CLASS_NUMBER) {
+        if (binding.editTextTextPostalAddress.inputType != InputType.TYPE_CLASS_NUMBER) {
             binding.editTextTextPostalAddress.error = "کد پستی باید عدد باشد"
             isError = false
         }
         if (!binding.male.isChecked && !binding.female.isChecked) {
-            binding.tvGender.error="لطفا گزینه مناسب را انتخاب کنید"
+            binding.tvGender.error = "لطفا گزینه مناسب را انتخاب کنید"
             isError = false
         }
         return isError
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     fun setInfoButton() {
         if (checkFields()) {
             sharedPreferences = getSharedPreferences(fileName, 0)
-            var editor = sharedPreferences.edit()
+            val editor = sharedPreferences.edit()
             editor.putString("FullName", binding.editTextTextPersonName.text.toString())
             editor.putString("NationalCode", binding.editTextNationalCode.text.toString())
             editor.putString("BornLocation", binding.editTextTextBornLocation.text.toString())
@@ -75,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 gender = "مرد"
             }
             editor.putString("Gender", gender)
-            editor.commit()
+            editor.apply()
             Toast.makeText(this, "Info Saved", Toast.LENGTH_SHORT).show()
         }
     }
@@ -86,15 +88,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    val startForResult=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-        result: ActivityResult ->
-        if (result.resultCode==Activity.RESULT_OK){
-            val intent=result.data
-            val isNewUser=intent?.getBooleanExtra("NewUser",false)
-            if (isNewUser!!){
-                listOfEditText.forEach { it.text.clear() }
-                binding.gender.callOnClick()
+
+    val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val intent = result.data
+                val isNewUser = intent?.getBooleanExtra("NewUser", false)
+                if (isNewUser!!) {
+                    listOfEditText.forEach { it.text.clear() }
+                    binding.gender.callOnClick()
+                }
             }
         }
-    }
 }

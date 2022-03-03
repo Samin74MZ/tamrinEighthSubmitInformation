@@ -5,4 +5,17 @@
     <string name="bornLocation"> محل تولد:<font color='#FF0077'>*</font></string>
     <string name="location"> آدرس:<font color='#FF0077'>*</font></string>
     <string name="postalAddress"> کد پستی:<font color='#FF0077'>*</font></string>
+    <string name="infoForm">فرم ثبت اطلاعات</string>
+    <string name="gender">جنسیت:</string>
+    <string name="male">مرد</string>
+    <string name="female">زن</string>
+    <string name="submitInfo">ثبت اطلاعات</string>
+    <string name="seeInfo">مشاهده اطلاعات ثبت شده</string>
+    <string name="nationalCod">کد ملی:</string>
+    <string name="bornAddress">محل تولد:</string>
+    <string name="address">آدرس:</string>
+    <string name="postalCode">کد پستی:</string>
+    <string name="genderr">جنسیت:</string>
+    <string name="editInfo">تغییر اطلاعت</string>
+    <string name="newUser">ورود کاربر جدید</string>
 </resources>

@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:textColor="@color/greenm"
             android:background="@color/green"
-            android:text="مشاهده اطلاعات ثبت شده" />
+            android:text="@string/seeInfo" />
 
         <TextView
             android:id="@+id/tvNationalCode"
@@ -31,7 +31,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@color/gray"
-            android:text="کد ملی:" />
+            android:text="@string/nationalCod" />
 
         <TextView
             android:id="@+id/tvBornLocation"
@@ -40,7 +40,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@color/gray"
-            android:text="محل تولد:" />
+            android:text="@string/bornAddress" />
 
         <TextView
             android:id="@+id/tvLocation"
@@ -49,7 +49,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@color/gray"
-            android:text="آدرس:" />
+            android:text="@string/address" />
 
         <TextView
             android:id="@+id/tvPostalAddress"
@@ -58,7 +58,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@color/gray"
-            android:text="کد پستی:" />
+            android:text="@string/postalCode" />
 
         <TextView
             android:id="@+id/tvGender"
@@ -67,7 +67,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@color/gray"
-            android:text="جنسیت:" />
+            android:text="@string/genderr" />
 
         <Button
             android:id="@+id/butEditInfo"
@@ -76,7 +76,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/pink"
-            android:text="تغییر اطلاعت" />
+            android:text="@string/editInfo" />
 
         <Button
             android:id="@+id/butNewUser"
@@ -85,6 +85,6 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/red"
-            android:text="ورود کاربر جدید" />
+            android:text="@string/newUser" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
