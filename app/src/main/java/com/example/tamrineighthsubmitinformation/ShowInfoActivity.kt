@@ -26,7 +26,7 @@ class ShowInfoActivity : AppCompatActivity() {
     fun editInfo(){
         val result=Intent()
         setResult(RESULT_OK,result)
-      //  finish()
+        finish()
     }
     fun addUser(){
         val intent = Intent(this, MainActivity::class.java)
