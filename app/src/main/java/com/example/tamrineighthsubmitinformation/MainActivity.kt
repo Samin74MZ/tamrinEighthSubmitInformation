@@ -85,19 +85,21 @@ class MainActivity : AppCompatActivity() {
     fun goToShowActivity() {
         if (checkFields()) {
             val intent = Intent(this, ShowInfoActivity::class.java)
-            startActivity(intent)
+           startActivity(intent)
+         //  startForResult.launch(intent)
+            //finish()
         }
     }
 
-    val startForResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val intent = result.data
-                val isNewUser = intent?.getBooleanExtra("NewUser", false)
-                if (isNewUser!!) {
-                    listOfEditText.forEach { it.text.clear() }
-                    binding.gender.callOnClick()
-                }
-            }
-        }
+//    val startForResult =
+//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+//            if (result.resultCode == Activity.RESULT_OK) {
+//                val intent = result.data
+//                val isNewUser = intent?.getBooleanExtra("NewUser", false)
+//                if (isNewUser!!) {
+//                    listOfEditText.forEach { it.text.clear() }
+//                    binding.gender.callOnClick()
+//                }
+//            }
+//        }
 }

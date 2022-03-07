@@ -28,6 +28,10 @@ class ShowInfoActivity : AppCompatActivity() {
         setResult(RESULT_OK,result)
         finish()
     }
+
+    override fun onBackPressed() {
+       // super.onBackPressed()
+    }
     fun addUser(){
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
