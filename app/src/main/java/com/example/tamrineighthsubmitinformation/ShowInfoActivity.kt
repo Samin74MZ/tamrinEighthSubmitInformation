@@ -24,7 +24,7 @@ class ShowInfoActivity : AppCompatActivity() {
        binding.tvGender.text="جنسیت:"+sharedPreferences.getString("Gender","")
    }
     fun editInfo(){
-        val result=Intent()
+        val result=Intent(this, MainActivity::class.java)
         setResult(RESULT_OK,result)
         finish()
     }

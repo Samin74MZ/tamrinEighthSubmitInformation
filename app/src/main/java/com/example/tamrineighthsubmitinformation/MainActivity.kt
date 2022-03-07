@@ -18,10 +18,25 @@ lateinit var sharedPreferences: SharedPreferences
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var listOfEditText = mutableListOf<EditText>()
+    val listOfSaveShare = mutableListOf<String?>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedPreferences = getSharedPreferences(fileName, 0)
+        val userName = sharedPreferences.getString("FullName", null)
+        val nationalCode = sharedPreferences.getString("NationalCode", null)
+        val bornLocation = sharedPreferences.getString("BornLocation", null)
+        val address = sharedPreferences.getString("Address", null)
+        val postalCode = sharedPreferences.getString("PostalCode", null)
+        val gender = sharedPreferences.getString("Gender", null)
+        listOfSaveShare.add(userName)
+        listOfSaveShare.add(nationalCode)
+        listOfSaveShare.add(bornLocation)
+        listOfSaveShare.add(address)
+        listOfSaveShare.add(postalCode)
+        listOfSaveShare.add(gender)
+
         initView()
 
     }
@@ -32,9 +47,16 @@ class MainActivity : AppCompatActivity() {
         listOfEditText.add(binding.editTextTextBornLocation)
         listOfEditText.add(binding.editTextTextLocation)
         listOfEditText.add(binding.editTextTextPostalAddress)
-        binding.setInfo.setOnClickListener {
-            setInfoButton()
-            goToShowActivity()
+        listOfSaveShare.forEach {
+            if (it != null) {
+                var intent = Intent(this, ShowInfoActivity::class.java)
+                startActivity(intent)
+            }else{
+                binding.setInfo.setOnClickListener {
+                    setInfoButton()
+                    goToShowActivity()
+                }
+            }
         }
     }
 
@@ -85,21 +107,8 @@ class MainActivity : AppCompatActivity() {
     fun goToShowActivity() {
         if (checkFields()) {
             val intent = Intent(this, ShowInfoActivity::class.java)
-           startActivity(intent)
-         //  startForResult.launch(intent)
-            //finish()
+            startActivity(intent)
         }
     }
 
-//    val startForResult =
-//        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-//            if (result.resultCode == Activity.RESULT_OK) {
-//                val intent = result.data
-//                val isNewUser = intent?.getBooleanExtra("NewUser", false)
-//                if (isNewUser!!) {
-//                    listOfEditText.forEach { it.text.clear() }
-//                    binding.gender.callOnClick()
-//                }
-//            }
-//        }
 }
