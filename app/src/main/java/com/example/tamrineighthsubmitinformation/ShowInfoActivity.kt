@@ -33,6 +33,14 @@ class ShowInfoActivity : AppCompatActivity() {
        // super.onBackPressed()
     }
     fun addUser(){
+        val editor = sharedPreferences.edit()
+        editor.putString("FullName", null)
+        editor.putString("NationalCode", null)
+        editor.putString("BornLocation", null)
+        editor.putString("Address", null)
+        editor.putString("PostalCode", null)
+        editor.putString("Gender",null)
+        editor.apply()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
